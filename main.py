@@ -8,15 +8,14 @@ Endpoints (exact spec from assignment):
 from dotenv import load_dotenv
 load_dotenv()
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
-from schemas import ChatRequest, ChatResponse, HealthResponse
 from agent import run_agent_turn
 
 app = FastAPI(title="SHL Assessment Recommender")
 
-# Permissive CORS since the evaluator harness calls this from an external host.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -26,12 +25,13 @@ app.add_middleware(
 
 
 @app.get("/health")
-def health() -> HealthResponse:
-    return HealthResponse(status="ok")
+def health():
+    return {"status": "ok"}
 
 
 @app.post("/chat")
-def chat(request: ChatRequest) -> ChatResponse:
-    messages = [{"role": m.role, "content": m.content} for m in request.messages]
+async def chat(request: Request):
+    body = await request.json()
+    messages = body.get("messages", [])
     result = run_agent_turn(messages)
-    return ChatResponse(**result)
+    return JSONResponse(content=result)
