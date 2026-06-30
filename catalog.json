@@ -1,0 +1,600 @@
+[
+  {
+    "name": "Global Skills Development Report",
+    "url": "https://www.shl.com/products/product-catalog/view/global-skills-development-report/",
+    "test_type": [
+      "A",
+      "E",
+      "B",
+      "C",
+      "D",
+      "P"
+    ]
+  },
+  {
+    "name": ".NET Framework 4.5",
+    "url": "https://www.shl.com/products/product-catalog/view/net-framework-4-5/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": ".NET MVC (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-mvc-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": ".NET MVVM (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-mvvm-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": ".NET WCF (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-wcf-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": ".NET WPF (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-wpf-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": ".NET XAML (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-xaml-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Accounts Payable (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-payable-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Accounts Payable Simulation (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-payable-simulation-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Accounts Receivable (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-receivable-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Accounts Receivable Simulation (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-receivable-simulation-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "ADO.NET (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/ado-net-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Adobe Experience Manager (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/adobe-experience-manager-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Adobe Photoshop CC",
+    "url": "https://www.shl.com/products/product-catalog/view/adobe-photoshop-cc/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Aeronautical Engineering (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/aeronautical-engineering-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Aerospace Engineering (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/aerospace-engineering-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Agile Software Development",
+    "url": "https://www.shl.com/products/product-catalog/view/agile-software-development/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Agile Testing (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/agile-testing-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "AI Skills",
+    "url": "https://www.shl.com/products/product-catalog/view/ai-skills/",
+    "test_type": [
+      "P"
+    ]
+  },
+  {
+    "name": "Amazon Web Services (AWS) Development (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/amazon-web-services-aws-development-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Android Development (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/android-development-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Angular 6 (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/angular-6-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "AngularJS (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/angularjs-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Apache Hadoop (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/apache-hadoop-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Apache Hadoop Extensions (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/apache-hadoop-extensions-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Apache HBase (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/apache-hbase-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Apache Hive (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/apache-hive-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Apache Kafka (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/apache-kafka-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Apache Pig (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/apache-pig-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Apache Spark (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/apache-spark-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "ASP .NET with C# (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/asp-net-with-c-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "ASP.NET 4.5",
+    "url": "https://www.shl.com/products/product-catalog/view/asp-net-4-5/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Assessment and Development Center Exercises",
+    "url": "https://www.shl.com/products/product-catalog/view/assessment-and-development-center-exercises/",
+    "test_type": [
+      "E"
+    ]
+  },
+  {
+    "name": "Automata - Fix (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/automata-fix-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Automata - SQL (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/automata-sql-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Automata (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/automata-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Automata Data Science (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/automata-data-science-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Automata Data Science Pro (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/automata-data-science-pro-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Automata Front End",
+    "url": "https://www.shl.com/products/product-catalog/view/automata-front-end/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Automata Pro (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/automata-pro-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Automata Selenium",
+    "url": "https://www.shl.com/products/product-catalog/view/automata-selenium/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Automation Anywhere RPA Development (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/automation-anywhere-rpa-development-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Automotive Engineering (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/automotive-engineering-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Basic Biology (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/basic-biology-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Basic Computer Literacy (Windows 10) (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/basic-computer-literacy-windows-10-new/",
+    "test_type": [
+      "S",
+      "K"
+    ]
+  },
+  {
+    "name": "Basic Statistics (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/basic-statistics-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Biochemistry (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/biochemistry-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Biotech Lab Techniques (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/biotech-lab-techniques-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "BizTalk (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/biztalk-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Business Communication (adaptive)",
+    "url": "https://www.shl.com/products/product-catalog/view/business-communication-adaptive/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Business Communications",
+    "url": "https://www.shl.com/products/product-catalog/view/business-communications/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "C Programming (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/c-programming-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "C# Programming (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/c-programming-new-4039/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "C++ Programming (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/c-programming-new-4122/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Cardiology and Diabetes Management (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/cardiology-and-diabetes-management-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Ceramic Engineering (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/ceramic-engineering-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Chemical Engineering (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/chemical-engineering-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Cisco AppDynamics (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/cisco-appdynamics-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Civil Engineering (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/civil-engineering-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Cloud Computing (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/cloud-computing-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "COBOL Programming (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/cobol-programming-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Computer Science (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/computer-science-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Contact Center Call Simulation (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/contact-center-call-simulation-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Conversational Multichat Simulation",
+    "url": "https://www.shl.com/products/product-catalog/view/conversational-multichat-simulation/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Core Java (Advanced Level) (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/core-java-advanced-level-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Core Java (Entry Level) (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/core-java-entry-level-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Count Out The Money",
+    "url": "https://www.shl.com/products/product-catalog/view/count-out-the-money/",
+    "test_type": [
+      "K",
+      "S"
+    ]
+  },
+  {
+    "name": "CSS3 (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/css3-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Culinary Skills (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/culinary-skills-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Customer Service Phone Simulation",
+    "url": "https://www.shl.com/products/product-catalog/view/customer-service-phone-simulation/",
+    "test_type": [
+      "B",
+      "S"
+    ]
+  },
+  {
+    "name": "Customer Service Phone Solution",
+    "url": "https://www.shl.com/products/product-catalog/view/customer-service-phone-solution/",
+    "test_type": [
+      "B",
+      "P",
+      "S"
+    ]
+  },
+  {
+    "name": "Cyber Risk (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/cyber-risk-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Data Entry (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/data-entry-new/",
+    "test_type": [
+      "S"
+    ]
+  },
+  {
+    "name": "Data Entry Alphanumeric Split Screen - US",
+    "url": "https://www.shl.com/products/product-catalog/view/data-entry-alphanumeric-split-screen-us/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Data Entry Numeric Split Screen - US",
+    "url": "https://www.shl.com/products/product-catalog/view/data-entry-numeric-split-screen-us/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Data Entry Ten Key Split Screen",
+    "url": "https://www.shl.com/products/product-catalog/view/data-entry-ten-key-split-screen/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Data Science (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/data-science-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Data Warehousing Concepts",
+    "url": "https://www.shl.com/products/product-catalog/view/data-warehousing-concepts/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Dependability and Safety Instrument (DSI)",
+    "url": "https://www.shl.com/products/product-catalog/view/dependability-and-safety-instrument-dsi/",
+    "test_type": [
+      "P"
+    ]
+  },
+  {
+    "name": "Dermatology (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/dermatology-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Desktop Support (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/desktop-support-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Digital Advertising (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/digital-advertising-new/",
+    "test_type": [
+      "K"
+    ]
+  },
+  {
+    "name": "Digital Readiness Development Report - IC",
+    "url": "https://www.shl.com/products/product-catalog/view/digital-readiness-development-report/",
+    "test_type": [
+      "P"
+    ]
+  },
+  {
+    "name": "Digital Readiness Development Report - Manager",
+    "url": "https://www.shl.com/products/product-catalog/view/digital-readiness-development-report-manager/",
+    "test_type": [
+      "P"
+    ]
+  }
+]
