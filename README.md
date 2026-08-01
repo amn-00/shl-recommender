@@ -2,7 +2,7 @@
 
 A conversational AI agent that helps hiring managers find the right SHL assessments through natural dialogue.
 
-**Live API:** https://shl-recommender-xbot.onrender.com/health
+**Live API:** https://shl-recommender-xbot.onrender.com/docs
 
 ---
 

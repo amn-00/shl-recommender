@@ -4,7 +4,7 @@ Endpoints (exact spec from assignment):
   GET  /health  -> {"status": "ok"}
   POST /chat    -> {"reply": str, "recommendations": [...], "end_of_conversation": bool}
 """
-
+from fastapi.responses import RedirectResponse
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -23,6 +23,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return RedirectResponse(url="/docs")
 
 @app.get("/health")
 def health():
