@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SHL Assessment Recommender</title>
+<meta name="description" content="Describe a role, get a shortlist of SHL assessments grounded in the real catalogue." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper:   #E4E6E1;
+    --card:    #F3F4F1;
+    --ink:     #191C1A;
+    --muted:   #6E736C;
+    --line:    #CDD1C9;
+    --accent:  #1F4FD8;
+    --chip:    #D7DAD2;
+
+    --display: "Newsreader", Georgia, serif;
+    --body:    "Inter", system-ui, -apple-system, sans-serif;
+    --mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 20px 96px;
+  }
+
+  /* ---------- header ---------- */
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(30px, 5.5vw, 42px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0 0 16px;
+    max-width: 15ch;
+  }
+
+  .standfirst {
+    color: var(--muted);
+    max-width: 54ch;
+    margin: 0 0 12px;
+  }
+
+  .meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 40px;
+  }
+
+  .meta a { color: var(--muted); text-underline-offset: 3px; }
+  .meta a:hover { color: var(--accent); }
+  .meta span { opacity: 0.5; padding: 0 8px; }
+
+  /* ---------- transcript ---------- */
+
+  .thread { display: flex; flex-direction: column; gap: 22px; }
+
+  .turn { animation: rise 260ms ease-out both; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .role {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .turn.user .bubble {
+    font-family: var(--display);
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  .turn.agent .bubble { max-width: 58ch; }
+
+  /* ---------- recommendations ---------- */
+
+  .recs {
+    margin-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .rec {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 12px 2px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .rec:hover .rec-name { color: var(--accent); }
+  .rec:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .codes { display: flex; gap: 4px; flex: 0 0 auto; }
+
+  .code {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    width: 20px; height: 20px;
+    display: grid; place-items: center;
+    background: var(--chip);
+    color: var(--ink);
+    border-radius: 2px;
+  }
+
+  .rec-name { flex: 1; font-weight: 500; }
+
+  .rec-go {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    flex: 0 0 auto;
+  }
+
+  .legend {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  .verified {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .tick { color: var(--accent); font-size: 13px; }
+
+  /* ---------- status ---------- */
+
+  .status {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pulse {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: blink 1.1s ease-in-out infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0.25; } }
+
+  .notice {
+    border-left: 2px solid var(--accent);
+    padding: 2px 0 2px 14px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* ---------- composer ---------- */
+
+  .composer {
+    margin-top: 34px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+  }
+
+  .composer:focus-within { border-color: var(--accent); }
+
+  textarea {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    resize: none;
+    font: inherit;
+    color: inherit;
+    outline: none;
+    max-height: 140px;
+  }
+
+  textarea::placeholder { color: var(--muted); }
+
+  button.send {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    border: 0;
+    border-radius: 2px;
+    padding: 9px 14px;
+    cursor: pointer;
+  }
+
+  button.send:hover:not(:disabled) { background: var(--accent); }
+  button.send:disabled { opacity: 0.35; cursor: default; }
+  button.send:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .hint {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* ---------- starters ---------- */
+
+  .starters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+
+  .starter {
+    font: inherit;
+    font-size: 13px;
+    text-align: left;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 7px 12px;
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  .starter:hover { border-color: var(--accent); color: var(--accent); }
+  .starter:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  footer a { color: var(--muted); text-underline-offset: 3px; }
+  footer a:hover { color: var(--accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Retrieval-grounded agent</p>
+  <h1>Describe the role. Get the assessments.</h1>
+  <p class="standfirst">
+    A conversational agent for SHL's assessment catalogue. It asks a clarifying
+    question when a brief is vague, then returns a shortlist drawn only from the
+    84 assessments it actually has on file.
+  </p>
+  <p class="meta">
+    FastAPI · Groq Llama 3.3 · no LangChain
+    <span>/</span><a href="/docs">API docs</a>
+    <span>/</span><a href="https://github.com/amn-00/shl-recommender">Source</a>
+  </p>
+
+  <div class="thread" id="thread" aria-live="polite"></div>
+
+  <div class="composer">
+    <textarea id="input" rows="1" placeholder="Hiring a mid-level Java developer…" aria-label="Describe the role you are hiring for"></textarea>
+    <button class="send" id="send">Send</button>
+  </div>
+  <p class="hint">Enter to send · Shift + Enter for a new line</p>
+
+  <div class="starters" id="starters">
+    <button class="starter">Hiring a mid-level Java developer</button>
+    <button class="starter">Graduate scheme, 400 applicants, need to sift fast</button>
+    <button class="starter">Call centre agents — attitude matters more than skills</button>
+  </div>
+
+  <footer>
+    Every recommendation is checked against the catalogue before it is returned,
+    so the agent cannot invent an assessment that does not exist.<br />
+    Running on a free instance — the first request after a quiet spell takes about a minute to wake.<br />
+    Built by <a href="https://github.com/amn-00">Aman Chaudhary</a>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const thread   = document.getElementById('thread');
+  const input    = document.getElementById('input');
+  const send     = document.getElementById('send');
+  const starters = document.getElementById('starters');
+
+  const TYPE_NAMES = {
+    A: 'Ability & aptitude',
+    B: 'Biodata & situational judgement',
+    C: 'Competencies',
+    D: 'Development & 360',
+    E: 'Assessment exercises',
+    K: 'Knowledge & skills',
+    P: 'Personality & behaviour',
+    S: 'Simulations'
+  };
+
+  let messages = [];
+  let busy = false;
+
+  function el(tag, cls, text) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function addTurn(role, label) {
+    const turn = el('div', 'turn ' + role);
+    turn.appendChild(el('div', 'role', label));
+    const bubble = el('div', 'bubble');
+    turn.appendChild(bubble);
+    thread.appendChild(turn);
+    turn.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    return bubble;
+  }
+
+  function renderRecs(bubble, recs) {
+    const list = el('div', 'recs');
+    const seen = new Set();
+
+    recs.forEach(function (r) {
+      const a = el('a', 'rec');
+      a.href = r.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+
+      const codes = el('div', 'codes');
+      String(r.test_type || '').split(/[\s,]+/).filter(Boolean).forEach(function (c) {
+        codes.appendChild(el('span', 'code', c));
+        seen.add(c);
+      });
+
+      a.appendChild(codes);
+      a.appendChild(el('span', 'rec-name', r.name));
+      a.appendChild(el('span', 'rec-go', '↗'));
+      list.appendChild(a);
+    });
+
+    bubble.appendChild(list);
+
+    if (seen.size) {
+      const key = Array.from(seen)
+        .filter(function (c) { return TYPE_NAMES[c]; })
+        .map(function (c) { return c + ' = ' + TYPE_NAMES[c]; })
+        .join('  ·  ');
+      if (key) bubble.appendChild(el('p', 'legend', key));
+    }
+
+    const v = el('p', 'verified');
+    v.appendChild(el('span', 'tick', '✓'));
+    v.appendChild(el('span', null,
+      recs.length + ' assessment' + (recs.length === 1 ? '' : 's') + ' verified against the catalogue'));
+    bubble.appendChild(v);
+  }
+
+  function statusLine() {
+    const turn = el('div', 'turn agent');
+    const s = el('div', 'status');
+    s.appendChild(el('span', 'pulse'));
+    const text = el('span', null, 'Searching the catalogue');
+    s.appendChild(text);
+    turn.appendChild(s);
+    thread.appendChild(turn);
+    turn.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+    const t1 = setTimeout(function () { text.textContent = 'Ranking candidates'; }, 1600);
+    const t2 = setTimeout(function () { text.textContent = 'Checking names against the catalogue'; }, 3600);
+    const t3 = setTimeout(function () {
+      text.textContent = 'Waking the server — first request takes about a minute';
+    }, 8000);
+
+    return {
+      clear: function () {
+        [t1, t2, t3].forEach(clearTimeout);
+        turn.remove();
+      }
+    };
+  }
+
+  async function ask(text) {
+    if (busy || !text.trim()) return;
+    busy = true;
+    send.disabled = true;
+    starters.style.display = 'none';
+
+    addTurn('user', 'You').textContent = text;
+    messages.push({ role: 'user', content: text });
+
+    input.value = '';
+    input.style.height = 'auto';
+
+    const status = statusLine();
+
+    try {
+      const res = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: messages })
+      });
+
+      status.clear();
+
+      if (!res.ok) {
+        const bubble = addTurn('agent', 'Recommender');
+        bubble.appendChild(el('p', 'notice',
+          'The server returned ' + res.status + '. Try sending that again in a moment.'));
+        return;
+      }
+
+      const data = await res.json();
+      const bubble = addTurn('agent', 'Recommender');
+      bubble.appendChild(el('p', null, data.reply));
+
+      if (Array.isArray(data.recommendations) && data.recommendations.length) {
+        renderRecs(bubble, data.recommendations);
+      }
+
+      messages.push({ role: 'assistant', content: data.reply });
+    } catch (err) {
+      status.clear();
+      const bubble = addTurn('agent', 'Recommender');
+      bubble.appendChild(el('p', 'notice',
+        'Could not reach the server. Check your connection and send that again.'));
+    } finally {
+      busy = false;
+      send.disabled = false;
+      input.focus();
+    }
+  }
+
+  send.addEventListener('click', function () { ask(input.value); });
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      ask(input.value);
+    }
+  });
+
+  input.addEventListener('input', function () {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 140) + 'px';
+  });
+
+  starters.addEventListener('click', function (e) {
+    if (e.target.classList.contains('starter')) ask(e.target.textContent);
+  });
+
+  input.focus();
+})();
+</script>
+</body>
+</html>

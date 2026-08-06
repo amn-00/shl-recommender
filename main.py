@@ -13,7 +13,7 @@ from typing import List
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, RedirectResponse
+from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 
 from agent import run_agent_turn
@@ -47,9 +47,9 @@ class ChatRequest(BaseModel):
     }
 
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 def root():
-    return RedirectResponse(url="/docs")
+    return FileResponse("index.html")
 
 
 @app.get("/health")
