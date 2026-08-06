@@ -3,7 +3,6 @@
 A conversational AI agent that helps hiring managers find the right SHL assessments through natural dialogue.
 
 **Try it:** https://shl-recommender-xbot.onrender.com
-**API docs:** https://shl-recommender-xbot.onrender.com/docs
 
 > Independent portfolio project. Not affiliated with, authorised by, or endorsed
 > by SHL. Assessment names and links point to SHL's public catalogue and remain
